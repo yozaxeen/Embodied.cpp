@@ -148,7 +148,7 @@ and do not propagate to decoded actions.
 - Closed-loop client: `eval/client/run_sim_client_direct.py --arch turbovla`
 
 
-## Same-weight rebuild (2026-09-08)
+## Same-weight rebuild (2026-09-08; Q6_K added 2026-09-09, rebuilt from the same source)
 
 Earlier rows mixed two checkpoints: the historical BF16 GGUF came from
 `object.pth` while the Python reference uses `turbovla_libero.pth`
@@ -161,6 +161,7 @@ Earlier rows mixed two checkpoints: the historical BF16 GGUF came from
 | BF16 | 375/400 (93.75%) | 385/400 (96.25%) |
 | Q8_0 | 380/400 (95.00%) | — |
 | Q4_K | 371/400 (92.75%) | — |
+| Q6_K | 378/400 (94.50%) | — |
 
 The C++/Python BF16 difference (2.5 pp) is reported as-is; it is the first
 same-weight comparison for this model. Quantized variants sit within the BF16

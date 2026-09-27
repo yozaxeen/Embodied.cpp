@@ -97,3 +97,20 @@ goal   : 98 100 92 88 100 98 100 100 100 98
 - Client: `eval/client/run_sim_client_direct.py --arch xr0 ...`
   (requires `protoc` on PATH and a LIBERO checkout on `PYTHONPATH`; see
   `eval/sim/libero/setup_libero.sh`).
+
+
+## Q6_K full evaluation (2026-09-09, same-weight rebuild)
+
+Q6_K was re-quantized from `xr0.gguf` after the original file was lost, and
+re-measured with seed 42, 400 episodes (strict 4x10 coverage PASS):
+
+| Suite | C++ Q6_K |
+|---|---:|
+| spatial | 98/100 |
+| object | 99/100 |
+| goal | 98/100 |
+| libero_10 | 97/100 |
+| **total** | **392/400 (98.00%)** |
+
+Sits exactly in the band of the other XR0 variants (98.0-98.55%) — 6-bit is
+loss-free at the behavioural level for this model.
