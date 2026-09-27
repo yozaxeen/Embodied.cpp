@@ -31,8 +31,8 @@ The archived Xiaomi-Robotics-0 and TurboVLA latency runs use one RTX
 precision, five warm-ups, 100 timed requests, complete CPU action read-back,
 and a separate process-memory phase. Their raw samples, hashes, and commands are
 summarized in
-[the 2026-09-03 follow-up](v2_followup_20260903.md) and its
-[machine-readable evidence](v2_followup_20260903_evidence.json).
+[the 2026-09-03 follow-up(audit/v2_followup_20260903.md) and its
+[machine-readable evidence(audit/v2_followup_20260903_evidence.json).
 
 These request-level measurements are not cross-model rankings. To compare the
 cost of producing one action across different output horizons, use the new

@@ -25,12 +25,12 @@ a different set of weights. Consequently **Python-normalized performance
 remains Pending**. See the controlled repair and evidence (artifact not retained).
 The following seed-7 archive is retained separately, not relabelled as this run.
 
-The [Q6_K follow-up](turbovla_xvla_q6_followup_20260904.md) compares the
+The [Q6_K follow-up(audit/turbovla_xvla_q6_followup_20260904.md) compares the
 historical GGUF against its own Q6 storage derivative: object task 0 is 10/10
 on both sides, and GPU memory is unchanged. This does not resolve the absent
 historical HF baseline.
 
-A separately approved [new HF/GGUF pair](xvla_matched_followup_20260904.md)
+A separately approved [new HF/GGUF pair(audit/xvla_matched_followup_20260904.md)
 now passes F32 and BF16 fixed-input Python/C++ parity and has repeated matched
 deployment measurements. It does not show a consistent BF16 latency advantage
 or a BF16 process-memory reduction, and is not a full success-rate rerun.

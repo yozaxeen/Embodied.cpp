@@ -15,11 +15,11 @@ See the independent audit (artifact not retained)
 and shared release ledger (artifact not retained).
 This validates the repaired rollout protocol, not a new latency claim.
 
-The [V2 post-allocator benchmark](v2_followup_20260903.md) records matched
+The [V2 post-allocator benchmark(audit/v2_followup_20260903.md) records matched
 CPU-input-to-CPU-actions means of C++ 53.56 vs Python 143.63 ms, with
 std/p50/p95/p99 and the same BF16 policy/F16 vision precision on both sides.
 This fixed-input performance evidence is separate from historical success rates.
-The [2026-09-04 Q6_K follow-up](xr0_q6_followup_20260904.md) adds a matched
+The [2026-09-04 Q6_K follow-up(audit/xr0_q6_followup_20260904.md) adds a matched
 100-call memory/performance result and a paired 10-episode task gate. Q6_K saves
 49.27% process VRAM versus BF16 but is 29.44% slower in the fixed-boundary run;
 it misses the strict 0.005 parity tolerance by one of 960 values.

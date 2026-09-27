@@ -24,12 +24,12 @@ SHA256 is `787c01bd8b328a5948b756aab92f8058a1e0802845a0e1f24506291b9cda59cf`;
 all 669 mapped weights match the historical GGUF. The reconversion preserves
 the checkpoint's per-instruction text lengths.
 
-The [V2 performance audit](v2_followup_20260903.md) adds matched post-allocator
+The [V2 performance audit(audit/v2_followup_20260903.md) adds matched post-allocator
 100-call benchmarks and a 20-episode-per-side shared-loop control (both 20/20;
 C++ 2.147 vs Python 3.637 weighted get_action ms/step). Those measurements
 have their own scope and do not replace the success-rate tables below.
 
-The [Q6_K follow-up](turbovla_xvla_q6_followup_20260904.md) adds a separate
+The [Q6_K follow-up(audit/turbovla_xvla_q6_followup_20260904.md) adds a separate
 30-episode-per-side targeted gate and same-batch latency/VRAM evidence.
 Q6 storage still loads as BF16 and is not a native 6-bit inference result.
 
