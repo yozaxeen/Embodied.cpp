@@ -22,7 +22,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import gguf
 
 QTYPES = {"q8_0": gguf.GGMLQuantizationType.Q8_0, "q4_0": gguf.GGMLQuantizationType.Q4_0,
-          "q6_k": gguf.GGMLQuantizationType.Q6_K, "q4_k": gguf.GGMLQuantizationType.Q4_K}
+          "q6_k": gguf.GGMLQuantizationType.Q6_K, "q4_k": gguf.GGMLQuantizationType.Q4_K, "q5_k": gguf.GGMLQuantizationType.Q5_K}
 FILE_TYPES = {"q8_0": gguf.LlamaFileType.MOSTLY_Q8_0, "q4_0": gguf.LlamaFileType.MOSTLY_Q4_0,
               "q6_k": gguf.LlamaFileType.MOSTLY_Q6_K,
               "q4_k": gguf.LlamaFileType.MOSTLY_Q4_K_S}
@@ -41,7 +41,7 @@ def quantize_file(source: Path, output: Path, outtype: str, min_rows: int = 128,
     block_size, _ = gguf.GGML_QUANT_SIZES[qtype]
     reader = gguf.GGUFReader(str(source))
     arch = reader.fields["general.architecture"].contents()
-    if arch not in ("turbovla", "xvla"):
+    if arch not in ("turbovla", "xvla", "xr0"):
         raise ValueError(f"unsupported architecture: {arch}")
     selected = set()
     for tensor in reader.tensors:
@@ -54,7 +54,7 @@ def quantize_file(source: Path, output: Path, outtype: str, min_rows: int = 128,
     if not selected:
         raise ValueError("no tensors selected")
     quantizer = None
-    if outtype in ("q6_k", "q4_k"):
+    if outtype in ("q6_k", "q4_k", "q5_k"):
         # K-quant encoders live in the GGML library; the vendored numpy writer
         # can only dequantize these types, so route them through the shared
         # TensorQuantizer (Q8_0/Q4_0 stay on the pure-numpy path).
